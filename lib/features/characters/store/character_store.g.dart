@@ -154,6 +154,24 @@ mixin _$CharacterStore on CharacterStoreBase, Store {
     });
   }
 
+  late final _$searchQueryAtom = Atom(
+    name: 'CharacterStoreBase.searchQuery',
+    context: context,
+  );
+
+  @override
+  String get searchQuery {
+    _$searchQueryAtom.reportRead();
+    return super.searchQuery;
+  }
+
+  @override
+  set searchQuery(String value) {
+    _$searchQueryAtom.reportWrite(value, super.searchQuery, () {
+      super.searchQuery = value;
+    });
+  }
+
   late final _$initAsyncAction = AsyncAction(
     'CharacterStoreBase.init',
     context: context,
@@ -214,6 +232,18 @@ mixin _$CharacterStore on CharacterStoreBase, Store {
   }
 
   @override
+  void setSearchQuery(String value) {
+    final _$actionInfo = _$CharacterStoreBaseActionController.startAction(
+      name: 'CharacterStoreBase.setSearchQuery',
+    );
+    try {
+      return super.setSearchQuery(value);
+    } finally {
+      _$CharacterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 loading: ${loading},
@@ -223,6 +253,7 @@ selectedGender: ${selectedGender},
 seriesInfo: ${seriesInfo},
 loadingSeries: ${loadingSeries},
 favoriteIds: ${favoriteIds},
+searchQuery: ${searchQuery},
 filteredCharacters: ${filteredCharacters},
 favoriteCharacters: ${favoriteCharacters}
     ''';

@@ -42,14 +42,30 @@ abstract class CharacterStoreBase with Store {
   @observable
   ObservableSet<int> favoriteIds = ObservableSet<int>();
 
+  @observable
+  String searchQuery = '';
+
+
  
-  @computed
-  List<Character> get filteredCharacters {
-    if (selectedGender == 'ALL') {
-      return characters.toList();
-    }
-    return characters.where((c) => c.gender == selectedGender).toList();
+@computed
+List<Character> get filteredCharacters {
+  var list = characters.toList();
+
+
+  if (selectedGender != 'ALL') {
+    list = list.where((c) => c.gender == selectedGender).toList();
   }
+
+  if (searchQuery.isNotEmpty) {
+    final query = searchQuery.toLowerCase();
+    list = list.where((c) {
+      return c.name.toLowerCase().contains(query);
+    }).toList();
+  }
+
+  return list;
+}
+
 
   @computed
   List<Character> get favoriteCharacters {
@@ -112,4 +128,10 @@ abstract class CharacterStoreBase with Store {
   }
 
   bool isFavorite(int id) => favoriteIds.contains(id);
+
+  @action
+  void setSearchQuery(String value) {
+  searchQuery = value;
+}
+
 }

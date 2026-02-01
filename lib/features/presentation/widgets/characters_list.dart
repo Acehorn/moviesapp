@@ -4,6 +4,7 @@ import 'package:moviesapp/features/characters/store/character_store.dart';
 import 'package:moviesapp/features/presentation/pages/character_detail_page.dart';
 import 'package:moviesapp/features/presentation/widgets/character_card.dart';
 import 'package:moviesapp/features/presentation/widgets/filter_bar.dart';
+import 'package:moviesapp/features/presentation/widgets/search_bar.dart';
 
 class CharactersList extends StatelessWidget {
   final CharacterStore store;
@@ -13,45 +14,55 @@ class CharactersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FilterBar(store: store),
-          ),
-          Expanded(
-            child: Observer(
-              builder: (_) {
-                if (store.loading) {
-                  return const Center(child: CircularProgressIndicator());
-                }
+  children: [
+    Padding(
+      padding: const EdgeInsets.all(16),
+      child: SearchingBar(store: store),
+    ),
+    Padding(
+      padding: const EdgeInsets.all(8),
+      child: FilterBar(store: store),
+    ),
+    Expanded(
+      child: Observer(
+        builder: (_) {
+          if (store.loading) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-                return ListView.builder(
-                  itemCount: store.filteredCharacters.length,
-                  itemBuilder: (_, index) {
-                    final character =
-                        store.filteredCharacters[index];
+          final characters = store.filteredCharacters;
 
-                    return CharacterCard(
-                      character: character,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => CharacterDetailPage(
-                              character: character,
-                              store: store,
-                            ),
-                          ),
-                        );
-                      },
-                      store: store,
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-        ],
-      );
+          if (characters.isEmpty) {
+            return const Center(child: Text('No hay resultados'));
+          }
+
+          return ListView.builder(
+            itemCount: characters.length,
+            itemBuilder: (_, index) {
+              final character = characters[index];
+
+              return CharacterCard(
+                character: character,
+                store: store,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => CharacterDetailPage(
+                        character: character,
+                        store: store,
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        },
+      ),
+    ),
+  ],
+);
+
   }
 }
