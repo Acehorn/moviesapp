@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "59485619839",
+    "project_id": "futurama1111",
+    "storage_bucket": "futurama1111.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59485619839:android:1199d9e1a77ec8c03c614a",
+        "android_client_info": {
+          "package_name": "com.example.moviesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbXwwxchbBcu480eftVlsNfUAZlQJ-1Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
