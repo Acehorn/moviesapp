@@ -1,16 +1,45 @@
-# moviesapp
+# MoviesApp (Futurama)
 
-A new Flutter project.
+Aplicación Flutter desarrollada como prueba técnica, que muestra una lista de personajes de Futurama y detalles de la serie, consumiendo múltiples APIs y utilizando MobX como manejador de estado.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- Listado de personajes (Futurama API)
+- Filtro por género
+- Marcar / desmarcar personajes como favoritos
+- Sección dedicada de favoritos
+- Vista de detalle por personaje
+- Información de la serie obtenida desde OMDb API
+- Animación Hero entre lista y detalle
+- Manejo de imágenes inválidas con fallback local
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Arquitectura y Tecnologías
+
+- Flutter
+- Dart
+- MobX (Observers, Actions, Computed)
+- Dio para consumo de APIs
+- Clean Architecture (separación por capas)
+- Componentes reutilizables
+
+---
+
+APIs utilizadas
+
+- Futurama API  
+  https://futuramaapi.com/api/characters
+
+- OMDb API  
+  https://www.omdbapi.com/
+
+---
+
+#Cómo ejecutar el proyecto
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/Acehorn/moviesapp
