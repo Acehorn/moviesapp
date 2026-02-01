@@ -14,6 +14,7 @@ Funcionalidades
 - Información de la serie obtenida desde OMDb API
 - Animación Hero entre lista y detalle
 - Manejo de imágenes inválidas con fallback local
+- Persistencia de datos para favoritos
 
 ---
 
@@ -51,4 +52,12 @@ APIs utilizadas
 
 4. Ejecutar app
  flutter run
+
+---
+
+Version de Flutter
+
+
+[✓] Flutter (Channel stable, 3.29.2, on macOS 14.5 23F79 darwin-arm64, locale es-419)
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.1.0)
 

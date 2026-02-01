@@ -154,6 +154,16 @@ mixin _$CharacterStore on CharacterStoreBase, Store {
     });
   }
 
+  late final _$initAsyncAction = AsyncAction(
+    'CharacterStoreBase.init',
+    context: context,
+  );
+
+  @override
+  Future<void> init() {
+    return _$initAsyncAction.run(() => super.init());
+  }
+
   late final _$fetchCharactersAsyncAction = AsyncAction(
     'CharacterStoreBase.fetchCharacters',
     context: context,
@@ -174,6 +184,18 @@ mixin _$CharacterStore on CharacterStoreBase, Store {
     return _$fetchSeriesInfoAsyncAction.run(() => super.fetchSeriesInfo());
   }
 
+  late final _$toggleFavoriteAsyncAction = AsyncAction(
+    'CharacterStoreBase.toggleFavorite',
+    context: context,
+  );
+
+  @override
+  Future<void> toggleFavorite(int characterId) {
+    return _$toggleFavoriteAsyncAction.run(
+      () => super.toggleFavorite(characterId),
+    );
+  }
+
   late final _$CharacterStoreBaseActionController = ActionController(
     name: 'CharacterStoreBase',
     context: context,
@@ -186,18 +208,6 @@ mixin _$CharacterStore on CharacterStoreBase, Store {
     );
     try {
       return super.setGenderFilter(gender);
-    } finally {
-      _$CharacterStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void toggleFavorite(int characterId) {
-    final _$actionInfo = _$CharacterStoreBaseActionController.startAction(
-      name: 'CharacterStoreBase.toggleFavorite',
-    );
-    try {
-      return super.toggleFavorite(characterId);
     } finally {
       _$CharacterStoreBaseActionController.endAction(_$actionInfo);
     }
