@@ -38,8 +38,17 @@ APIs utilizadas
 
 ---
 
-#Cómo ejecutar el proyecto
+¿Cómo ejecutar el proyecto?
 
 1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/Acehorn/moviesapp
+ git clone https://github.com/Acehorn/moviesapp
+
+2. Instalar dependencias
+ flutter pub get
+
+3. Generar codigo de MobX:
+ flutter pub run build_runner build --delete-conflicting-outputs
+
+4. Ejecutar app
+ flutter run
+

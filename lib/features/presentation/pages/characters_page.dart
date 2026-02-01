@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:moviesapp/features/characters/store/character_store.dart';
-import 'package:moviesapp/features/presentation/pages/character_detail_page.dart';
-import 'package:moviesapp/features/presentation/widgets/character_card.dart';
 import 'package:moviesapp/features/presentation/widgets/characters_list.dart';
 import 'package:moviesapp/features/presentation/widgets/favorites_list.dart';
-import 'package:moviesapp/features/presentation/widgets/filter_bar.dart';
 
 class CharactersPage extends StatefulWidget {
   final CharacterStore store;
